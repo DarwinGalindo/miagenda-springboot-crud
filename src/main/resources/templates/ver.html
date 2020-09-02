@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{base}">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<div layout:fragment="content" th:object="${contacto}">
+
+    <div class="btn-group float-right">
+        <a th:href="@{/contactos/{id}/editar(id=*{id})}" class="btn btn-outline-primary">
+            <i class="fa fa-edit"></i> Editar
+        </a>
+        <button class="btn btn-outline-danger" th:onclick="'eliminarContacto(' + *{id} + ')'">
+            <i class="fa fa-trash"></i> Eliminar
+            <form th:id="'form-eliminar-contacto-' + *{id}"
+                  th:action="@{/contactos/{id}/eliminar(id=*{id})}"
+                  method="post"
+                  class="no-display"></form>
+        </button>
+    </div>
+
+    <h3 th:inline="text">Detalles de contacto</h3>
+
+    <hr>
+
+    <div class="text-center">
+        <div class="mt-2">
+            <div class="font-weight-bold">Nombres</div>
+            <div th:text="*{nombres}"></div>
+        </div>
+
+        <div class="mt-2">
+            <div class="font-weight-bold">Apellidos</div>
+            <div th:text="*{apellidos}"></div>
+        </div>
+
+        <div class="mt-2">
+            <div class="font-weight-bold">Sexo</div>
+            <div th:text="*{sexo.descripcion}"></div>
+        </div>
+
+        <div class="mt-2">
+            <div class="font-weight-bold">Fecha de nacimiento</div>
+            <div th:text="*{#temporals.format(fechaNacimiento, 'dd/MM/yyyy')}"></div>
+        </div>
+
+        <div class="mt-2">
+            <div class="font-weight-bold">Teléfono</div>
+            <div th:text="*{telefono}"></div>
+        </div>
+
+        <div class="mt-2">
+            <div class="font-weight-bold">Celular</div>
+            <div th:text="*{celular}"></div>
+        </div>
+
+        <div class="mt-2">
+            <div class="font-weight-bold">Email</div>
+            <div th:text="*{email}"></div>
+        </div>
+
+        <div class="mt-2">
+            <div class="font-weight-bold">Dirección</div>
+            <div th:text="*{direccion}"></div>
+        </div>
+
+        <a th:href="@{/}" class="btn btn-link ml-2">Volver</a>
+    </div>
+
+</div>
+
+</body>
+</html>

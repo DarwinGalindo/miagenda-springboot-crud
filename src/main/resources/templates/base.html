@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi Agenda</title>
+
+    <!-- Estilos de la aplicación -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" th:href="@{/app.css}">
+</head>
+<body>
+
+<div class="container">
+    <div class="jumbotron mt-5 text-center">
+        <h1 class="display-4 text-success">Bienvenido a Mi Agenda!</h1>
+        <p class="lead">
+            Con esta aplicación podrás gestionar tu lista de contactos:
+            crear, consultar, actualizar y eliminar contactos.
+        </p>
+        <hr class="my-4">
+        <p>
+            Mi Agenda es una aplicación desarrollada con Spring Boot, Thymeleaf, Kotlin y MySQL.
+        </p>
+    </div>
+
+    <div layout:fragment="content"></div>
+</div>
+
+<!-- scripts de la aplicación -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script th:src="@{/app.js}"></script>
+
+</body>
+</html>

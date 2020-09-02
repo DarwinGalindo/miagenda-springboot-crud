@@ -1,0 +1,16 @@
+.container {
+    margin-bottom: 3rem;
+}
+
+.form-group > label {
+    font-weight: bold;
+}
+
+.form-group.required > label::after {
+    content: ' *';
+    color: red;
+}
+
+.no-display {
+    display: none !important;
+}
